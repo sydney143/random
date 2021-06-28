@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+<h1>Welcome to CRUDelicious</h1>
+<h2>Check out some recent dishes!</h2>
+<table class = "table table-striped">
+    <tr>
+       <th>Chef</th> 
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Tastiness</th>
+        <th>Description</th>
+        <th>Actions</th>
+        </tr>
+
+        @{
+            foreach(Recipe g in ViewBag.AllRecipes)
+            {
+                <tr>
+                    <td><a href="/onerecipe/@g.RecipeId">@g.Chef</td>
+                    <td>@g.Name</td>
+                    <td>@g.Calories</td>
+                    <td>@g.Tastiness</td>
+                    <td>@g.Description</td>
+                    <td><a href="delete/@g.RecipeId">Delete</a> /  <a href="edit/@g.RecipeId">Update</a></td>
+                </tr>
+            }
+        }
+
+    </tr>
+</table>
+</div>
